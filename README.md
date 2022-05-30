@@ -1,4 +1,4 @@
 # Tugas TBA
 
 ## Lexical Analyzer
-[Link to demo](https://lexicalanalyzer.vercel.app/)
+[Link to demo](https://tubestba.vercel.app/)

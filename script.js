@@ -41,10 +41,15 @@ transitionTable[['q5', 'd']] = 'q6'
 transitionTable[['q6', 'i']] = 'q4'
 transitionTable[['q4', 'k']] = 'q7'
 
-// lexical analysis
+
 const checkSentence = (sentence) => {
-    let result = document.getElementById('result')
-    result.textContent = ''
+    // lexical analysis
+    let resultLa = document.getElementById('resultLa')
+    let laTitle = document.getElementById('laTitle')
+    let parserTitle = document.getElementById('parserTitle')
+    laTitle.className = 'block'
+    parserTitle.className = 'hidden'
+    resultLa.innerHTML = ''
     let inputString = sentence.toLowerCase() + '#'
     let idxChar = 0
     let state = 'q0'
@@ -56,13 +61,13 @@ const checkSentence = (sentence) => {
         state = transitionTable[[state, currentChar]]
         if (state == 'q7') {
             console.log('Current Token :', currentToken, ', valid');
-            result.textContent = result.textContent + 'Current Token : ' + currentToken + ', valid'
-            result.textContent += '\n'
+            resultLa.innerHTML = resultLa.innerHTML + 'Current Token : ' + currentToken + ', valid'
+            resultLa.innerHTML += '<br />'
         }
         if (state == 'ERROR') {
             console.log('ERROR');
-            result.textContent += 'ERROR'
-            result.style.color = 'red'
+            resultLa.innerHTML += 'ERROR'
+            resultLa.style.color = 'red'
             break
         }
         idxChar++
@@ -70,9 +75,16 @@ const checkSentence = (sentence) => {
 
     if (state == 'ACCEPT') {
         console.log('semua token pada input : ', sentence, 'valid');
-        result.textContent += 'Semua token pada input : ' + sentence + ', valid'
-        result.style.color = 'green'
+        resultLa.innerHTML += 'Semua token pada input : ' + sentence + ', valid'
+        resultLa.style.color = 'green'
+
+        // Parser
+        parserTitle.className = 'block'
+
     }
+
+
+
 }
 
 

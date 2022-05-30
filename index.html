@@ -22,8 +22,8 @@
 </head>
 
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
-    <h1 class="font-medium text-3xl text-center text-white my-10">Lexical Analyzer</h1>
-    <div class="md:w-1/2 w-3/4 mx-auto bg-white rounded p-10 min-h-[32rem]">
+    <h1 class="font-medium text-3xl text-center text-white my-10">Lexical Analyzer dan Parser</h1>
+    <div class=" lg:w-1/2 md:w-8/12 w-3/4 mx-auto bg-white rounded p-10 min-h-[32rem]">
         <form id="form" class="flex space-between mb-5">
             <input id="sentence" placeholder="Masukkan kalimat yang akan dicek..."
                 class=" w-full inline-block shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -31,7 +31,10 @@
             <button type="submit" id="checkButton"
                 class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 mx-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Check</button>
         </form>
-        <span id="result"></span>
+        <h1 id="laTitle" class="hidden">Lexical Analyzer</h1>
+        <span class="mb-5 inline-block" id="resultLa"></span>
+        <h1 id="parserTitle" class="hidden">Parser</h1>
+        <span class="mb-5 inline-block" id="resultParser"></span>
     </div>
 
 </body>
