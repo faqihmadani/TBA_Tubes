@@ -49,7 +49,7 @@ const checkSentence = (sentence) => {
     let parserTitle = document.getElementById('parserTitle')
     laTitle.className = 'block'
     parserTitle.className = 'hidden'
-    resultLa.innerHTML = ''
+    resultLa.innerText = ''
     let inputString = sentence.toLowerCase() + '#'
     let idxChar = 0
     let state = 'q0'
@@ -61,12 +61,12 @@ const checkSentence = (sentence) => {
         state = transitionTable[[state, currentChar]]
         if (state == 'q7') {
             console.log('Current Token :', currentToken, ', valid');
-            resultLa.innerHTML = resultLa.innerHTML + 'Current Token : ' + currentToken + ', valid'
-            resultLa.innerHTML += '<br />'
+            resultLa.innerText = resultLa.innerText + 'Current Token : ' + currentToken + ', valid'
+            resultLa.innerText += '\n'
         }
         if (state == 'ERROR') {
             console.log('ERROR');
-            resultLa.innerHTML += 'ERROR'
+            resultLa.innerText += 'ERROR'
             resultLa.style.color = 'red'
             break
         }
@@ -75,7 +75,7 @@ const checkSentence = (sentence) => {
 
     if (state == 'ACCEPT') {
         console.log('semua token pada input : ', sentence, 'valid');
-        resultLa.innerHTML += 'Semua token pada input : ' + sentence + ', valid'
+        resultLa.innerText += 'Semua token pada input : ' + sentence + ', valid'
         resultLa.style.color = 'green'
 
         // Parser
@@ -86,7 +86,6 @@ const checkSentence = (sentence) => {
 
 
 }
-
 
 let form = document.getElementById('form')
 let button = document.getElementById('checkButton')
