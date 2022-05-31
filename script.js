@@ -60,10 +60,12 @@ const checkSentence = (sentence) => {
         currentChar = inputString[idxChar]
         currentToken += currentChar
         state = transitionTable[[state, currentChar]]
-        if (state == 'q7') {
+        acceptStates = ['q6', 'q7']
+        if (state == 'q6') {
             console.log('Current Token :', currentToken, ', valid');
             resultLa.innerText = resultLa.innerText + 'Current Token : ' + currentToken + ', valid'
             resultLa.innerText += '\n'
+            currentToken = ''
         }
         if (state == 'ERROR') {
             console.log('ERROR');
