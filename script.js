@@ -5,7 +5,7 @@
 // inisialisai
 const alpha = Array.from(Array(26)).map((e, i) => i + 65);
 const alphabetList = alpha.map((x) => String.fromCharCode(x).toLowerCase());
-const stateList = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8']
+const stateList = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7']
 
 let transitionTable = {}
 
@@ -20,26 +20,27 @@ stateList.forEach(state => {
 // starting node space
 transitionTable[['q0', ' ']] = 'q0'
 
-// kakak
-transitionTable[['q0', 'k']] = 'q1'
+// pakdhe
+transitionTable[['q0', 'p']] = 'q1'
 transitionTable[['q1', 'a']] = 'q2'
 transitionTable[['q2', 'k']] = 'q3'
-transitionTable[['q3', 'a']] = 'q4'
-transitionTable[['q4', 'k']] = 'q7'
-transitionTable[['q7', ' ']] = 'q8'
+transitionTable[['q3', 'd']] = 'q4'
+transitionTable[['q4', 'h']] = 'q5'
+transitionTable[['q5', 'e']] = 'q6'
+transitionTable[['q6', ' ']] = 'q7'
+transitionTable[['q6', '#']] = 'ACCEPT'
+transitionTable[['q7', ' ']] = 'q7'
 transitionTable[['q7', '#']] = 'ACCEPT'
-transitionTable[['q8', ' ']] = 'q8'
-transitionTable[['q8', '#']] = 'ACCEPT'
+transitionTable[['q7', 'p']] = 'q1'
 
-// transition
-transitionTable[['q8', 'k']] = 'q1'
-transitionTable[['q8', 'a']] = 'q5'
+// // transition
+// transitionTable[['q8', 'a']] = 'q5'
 
-// adik
-transitionTable[['q0', 'a']] = 'q5'
-transitionTable[['q5', 'd']] = 'q6'
-transitionTable[['q6', 'i']] = 'q4'
-transitionTable[['q4', 'k']] = 'q7'
+// // adik
+// transitionTable[['q0', 'a']] = 'q5'
+// transitionTable[['q5', 'd']] = 'q6'
+// transitionTable[['q6', 'i']] = 'q4'
+// transitionTable[['q4', 'k']] = 'q7'
 
 
 const checkSentence = (sentence) => {
@@ -78,9 +79,19 @@ const checkSentence = (sentence) => {
         resultLa.innerText += 'Semua token pada input : ' + sentence + ', valid'
         resultLa.style.color = 'green'
 
+        /*
         // Parser
         parserTitle.className = 'block'
+        let tokens = sentence.toLowerCase().split()
+        tokens.append('EOS')
 
+        // Symbol definition
+        nonTerminals = ['S', 'NN', 'VB']
+        terminals = ['adik', 'kakak', 'bakso', 'tahu', 'buku', 'sepatu', 'topi', 'membaca', 'makan', 'memakai']
+
+        // Parse Table
+        parseTable = {}
+        */
     }
 
 
