@@ -143,7 +143,6 @@ const checkSentence = (sentence) => {
 
         // Parser
         parserTitle.className = 'block font-medium text-lg'
-        let realSentence = sentence
         sentence = sentence.replace(/\s+/g, ' ').trim()
         let tokens = sentence.toLowerCase().split(" ")
         tokens.push('EOS')
@@ -243,10 +242,10 @@ const checkSentence = (sentence) => {
 
         // Conclusion
         if (symbol == 'EOS' && stack.length == 0) {
-            resultParser.innerText = resultParser.innerText + 'Input string "' + realSentence + '" diterima, sesuai Grammar \n'
+            resultParser.innerText = resultParser.innerText + 'Input string "' + sentence + '" diterima, sesuai Grammar \n'
             resultParser.style.color = 'green'
         } else {
-            resultParser.innerText = resultParser.innerText + 'Error, input string "' + realSentence + '" tidak diterima, tidak sesuai Grammar \n'
+            resultParser.innerText = resultParser.innerText + 'Error, input string "' + sentence + '" tidak diterima, tidak sesuai Grammar \n'
             resultParser.style.color = 'red'
         }
     }
